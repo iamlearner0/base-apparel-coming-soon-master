@@ -8,20 +8,21 @@ eventListener();
 
 function eventListener() {
   emailInput.addEventListener("keyup", checkEmail);
+  emailInput.addEventListener("blur", checkEmail);
   // submitBtn.addEventListener("click", checkEmail);
 }
 
+// To check if the inputted mail is correct and if it's more than 5 in length
 function checkEmail() {
-  // e.preventDefault();
   let emailInputValue = emailInput.value;
-  // let emailFormat =
-  //   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  if (emailInputValue.indexOf("@") !== -1) {
-    console.log(emailInputValue);
+  let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (emailFormat.test(emailInputValue) || emailInputValue > 5) {
+    errorMessage.classList.remove("error");
+    errorIcon.classList.remove("icon");
+    emailInput.style.border = "2px solid hsl(0, 36%, 70%)";
   } else {
     errorMessage.classList.add("error");
     errorIcon.classList.add("icon");
     emailInput.style.border = "1px solid red";
-    // console.log("This is an error");
   }
 }
