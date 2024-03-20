@@ -174,4 +174,12 @@ body {
   .business--image {
     height: 100%;
   }
+  .icon {
+    top: 25%;
+    right: 18%;
+    display: block;
+  }
+  .error {
+    margin-top: -4.5em;
+  }
 }
